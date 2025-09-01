@@ -1,0 +1,197 @@
+[gd_scene load_steps=23 format=3 uid="uid://6ck6gtqmkq41"]
+
+[ext_resource type="Texture2D" uid="uid://dabfx2n1a2v14" path="res://Personaggio/sprites/ch.png" id="1_cnpcq"]
+[ext_resource type="Script" uid="uid://bv82ponpdcgpd" path="res://Personaggio/personaggio.gd" id="1_i7dgp"]
+[ext_resource type="PackedScene" uid="uid://cxsaau8b8ingy" path="res://Componenti/attack.tscn" id="3_vdvvt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7dgp"]
+atlas = ExtResource("1_cnpcq")
+region = Rect2(0, 152, 102, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdvvt"]
+atlas = ExtResource("1_cnpcq")
+region = Rect2(0, 0, 102, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_371fp"]
+atlas = ExtResource("1_cnpcq")
+region = Rect2(0, 304, 102, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qeft"]
+atlas = ExtResource("1_cnpcq")
+region = Rect2(0, 152, 102, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tafql"]
+atlas = ExtResource("1_cnpcq")
+region = Rect2(102, 152, 102, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hliym"]
+atlas = ExtResource("1_cnpcq")
+region = Rect2(204, 152, 102, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6j37j"]
+atlas = ExtResource("1_cnpcq")
+region = Rect2(306, 152, 102, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ntsk"]
+atlas = ExtResource("1_cnpcq")
+region = Rect2(0, 0, 102, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hu07y"]
+atlas = ExtResource("1_cnpcq")
+region = Rect2(102, 0, 102, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6hyi"]
+atlas = ExtResource("1_cnpcq")
+region = Rect2(204, 0, 102, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e5v5"]
+atlas = ExtResource("1_cnpcq")
+region = Rect2(306, 0, 102, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsy6r"]
+atlas = ExtResource("1_cnpcq")
+region = Rect2(102, 304, 102, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcdi0"]
+atlas = ExtResource("1_cnpcq")
+region = Rect2(204, 304, 102, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p40e6"]
+atlas = ExtResource("1_cnpcq")
+region = Rect2(306, 304, 102, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20swn"]
+atlas = ExtResource("1_cnpcq")
+region = Rect2(0, 304, 102, 152)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_20swn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7dgp")
+}],
+"loop": true,
+"name": &"IdleBack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdvvt")
+}],
+"loop": true,
+"name": &"IdleFront",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_371fp")
+}],
+"loop": true,
+"name": &"IdleSide",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qeft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tafql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hliym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6j37j")
+}],
+"loop": true,
+"name": &"WalkingBack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ntsk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hu07y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6hyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7e5v5")
+}],
+"loop": true,
+"name": &"WalkingFront",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsy6r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcdi0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p40e6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20swn")
+}],
+"loop": true,
+"name": &"WalkingSide",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cnpcq"]
+size = Vector3(0.764771, 0.798309, 0.658432)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vdvvt"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_vdvvt"]
+
+[node name="Personaggio" type="CharacterBody3D"]
+script = ExtResource("1_i7dgp")
+SPEED = 10.0
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 0, 0)
+sprite_frames = SubResource("SpriteFrames_20swn")
+animation = &"IdleBack"
+
+[node name="PivotCamera" type="Node3D" parent="AnimatedSprite3D"]
+transform = Transform3D(1, 0, 0, 0, 0.766044, -0.642788, 0, 0.642788, 0.766044, 0, 2.5, 2)
+
+[node name="Camera3D" type="Camera3D" parent="AnimatedSprite3D/PivotCamera"]
+transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 0, 3.976)
+
+[node name="PosHitboxN" type="Node3D" parent="AnimatedSprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0.333148, -0.39703)
+
+[node name="PosHitboxS" type="Node3D" parent="AnimatedSprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, -0.333, 0.397)
+
+[node name="PosHitboxE" type="Node3D" parent="AnimatedSprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0.666, 0, 0)
+
+[node name="PosHitboxW" type="Node3D" parent="AnimatedSprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.666, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00286865, -0.0696564, 0.0688705)
+shape = SubResource("BoxShape3D_cnpcq")
+
+[node name="Attack" parent="." node_paths=PackedStringArray("character") instance=ExtResource("3_vdvvt")]
+character = NodePath("..")
+
+[node name="HitBox" parent="Attack" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.534466, 0, 0)
+
+[node name="CollisionShape3D" parent="Attack/HitBox" index="0"]
+shape = SubResource("SphereShape3D_vdvvt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Attack/HitBox" index="1"]
+transform = Transform3D(0.31, 0, 0, 0, 0.31, 0, 0, 0, 0.31, -0.00691283, 0, 0)
+mesh = SubResource("SphereMesh_vdvvt")
+skeleton = NodePath("../..")
+
+[editable path="Attack"]

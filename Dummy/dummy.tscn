@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2v68cx1veed1"]
+
+[ext_resource type="Script" uid="uid://dvotnwkh8v60" path="res://Dummy/dummy.gd" id="1_d42o3"]
+[ext_resource type="Shape3D" uid="uid://bewiot5e0qeb1" path="res://Dummy/dummy_box.tres" id="1_nynhp"]
+[ext_resource type="PackedScene" uid="uid://bwl0bhlrhbowi" path="res://Componenti/hurtbox.tscn" id="1_tx5ky"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nynhp"]
+
+[node name="Dummy" type="Node3D"]
+script = ExtResource("1_d42o3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_nynhp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = ExtResource("1_nynhp")
+
+[node name="Hurtbox" parent="." node_paths=PackedStringArray("character") instance=ExtResource("1_tx5ky")]
+character = NodePath("..")
+
+[node name="CollisionShape3D" parent="Hurtbox/HurtboxCollision" index="0"]
+shape = ExtResource("1_nynhp")
+
+[editable path="Hurtbox"]
