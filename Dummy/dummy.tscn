@@ -17,8 +17,8 @@ mesh = SubResource("CapsuleMesh_nynhp")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = ExtResource("1_nynhp")
 
-[node name="Hurtbox" parent="." node_paths=PackedStringArray("character") instance=ExtResource("1_tx5ky")]
-character = NodePath("..")
+[node name="Hurtbox" parent="." node_paths=PackedStringArray("_character") instance=ExtResource("1_tx5ky")]
+_character = NodePath("..")
 
 [node name="CollisionShape3D" parent="Hurtbox/HurtboxCollision" index="0"]
 shape = ExtResource("1_nynhp")

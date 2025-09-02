@@ -180,17 +180,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.666, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00286865, -0.0696564, 0.0688705)
 shape = SubResource("BoxShape3D_cnpcq")
 
-[node name="Attack" parent="." node_paths=PackedStringArray("character") instance=ExtResource("3_vdvvt")]
-character = NodePath("..")
-
-[node name="HitBox" parent="Attack" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.534466, 0, 0)
+[node name="Attack" parent="." node_paths=PackedStringArray("_character") instance=ExtResource("3_vdvvt")]
+_character = NodePath("..")
 
 [node name="CollisionShape3D" parent="Attack/HitBox" index="0"]
 shape = SubResource("SphereShape3D_vdvvt")
+disabled = false
+debug_color = Color(0.973342, 0.0858232, 0.355481, 0.42)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Attack/HitBox" index="1"]
-transform = Transform3D(0.31, 0, 0, 0, 0.31, 0, 0, 0, 0.31, -0.00691283, 0, 0)
+transform = Transform3D(0.31, 0, 0, 0, 0.31, 0, 0, 0, 0.31, 0, 0, 0)
 mesh = SubResource("SphereMesh_vdvvt")
 skeleton = NodePath("../..")
 

@@ -18,7 +18,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jssfm"]
-albedo_color = Color(0, 1, 1, 1)
+albedo_color = Color(0, 0.116205, 0.116205, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lsdlv"]
 
@@ -68,4 +68,4 @@ mesh = SubResource("CylinderMesh_hwlk6")
 shape = SubResource("ConcavePolygonShape3D_hwlk6")
 
 [node name="Dummy" parent="." instance=ExtResource("3_ikdd4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.04106, 1.82479, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.04106, 0.425874, 0)

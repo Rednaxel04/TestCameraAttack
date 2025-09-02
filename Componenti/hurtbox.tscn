@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cmncmfbnd2n24" path="res://Componenti/hurtbox.gd" id="1_sqrdl"]
 
-[node name="Hurtbox" type="Node"]
+[node name="Hurtbox" type="Node3D"]
 script = ExtResource("1_sqrdl")
 
 [node name="HurtboxCollision" type="Area3D" parent="."]

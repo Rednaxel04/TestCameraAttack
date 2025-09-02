@@ -1,7 +1,5 @@
 extends CharacterBody3D
 
-signal flip_character
-
 @export_category("Movement")
 @export var SPEED = 5.0
 @export var JUMP_VELOCITY = 4.5

@@ -14,7 +14,8 @@ func _process(delta: float) -> void:
 	pass
 
 func set_hp(val:int):
-	HP -= val
-	print(HP)
-	if HP <= 0:
+	if HP >= 0:
+		HP -= val
+	else:
+		self.position = Vector3(10000, 10000, 10000)
 		self.visible = false

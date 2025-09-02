@@ -2,12 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dtg5fsunkoq6h" path="res://Componenti/attack.gd" id="1_gqck2"]
 
-[node name="Attack" type="Node"]
+[node name="Attack" type="Node3D"]
 script = ExtResource("1_gqck2")
 
 [node name="HitBox" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
 disabled = true
-
-[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
