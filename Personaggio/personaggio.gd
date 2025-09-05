@@ -1,19 +1,19 @@
 extends CharacterBody3D
 
 @export_category("Movement")
-@export var SPEED = 5.0
-@export var JUMP_VELOCITY = 4.5
+@export var SPEED := 5.0
+@export var JUMP_VELOCITY := 4.5
 
 @onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
 
 enum hitbox_pos {
-	North,
-	South,
-	West,
-	East
+	North,	#0
+	South,	#1
+	West,	#2
+	East	#3
 }
 
-var current_dir = hitbox_pos.South
+var current_dir := hitbox_pos.South
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -25,7 +25,6 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("Left", "Right", "Up", "Down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
@@ -38,13 +37,16 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
+	#ad ogni input (da tastiera e da mouse) viene chiamata la funzione che fa partire l'animazione
 	var input_dir := Input.get_vector("Left", "Right", "Up", "Down")
 	get_animation(input_dir.x, input_dir.y)
 
 
 func get_animation(x:float, y:float):
+	#il pattern matching di Godot è parecchio limitato, quindi:
+	
+	#quando il pg è FERMO viene scelta la idle in base alla sua direzione
 	if x == 0 and y == 0:
-		animated_sprite_3d.play("IdleFront")
 		match current_dir:
 			hitbox_pos.West:
 				animated_sprite_3d.play("IdleSide")
@@ -54,7 +56,10 @@ func get_animation(x:float, y:float):
 				animated_sprite_3d.play("IdleFront")
 			hitbox_pos.North:
 				animated_sprite_3d.play("IdleBack")
-	if abs(x) == 1 and y == 0:		#right or left
+	
+	#quando il pg cammina verso DESTRA o SINISTRA viene chiamata l'apposita animazione e il modello
+	#viene specchiato in base alla direzione verso cui cammina  
+	if abs(x) == 1 and y == 0:
 		animated_sprite_3d.play("WalkingSide")
 		if x > 0:
 			current_dir = hitbox_pos.East
@@ -62,6 +67,10 @@ func get_animation(x:float, y:float):
 		else:
 			current_dir = hitbox_pos.West
 			animated_sprite_3d.flip_h = false
+	
+	#quando il pg cammina verso l'ALTO o BASSO viene chiamata l'apposita animazione
+	#se anche il personaggio cammina in alto(basso) a destra(sinistra), viene comunque
+	#chiamata l'animazione verso l'alto(basso)
 	if abs(y) == 1:					#up or down
 		if y > 0:
 			current_dir = hitbox_pos.South
@@ -71,6 +80,8 @@ func get_animation(x:float, y:float):
 			animated_sprite_3d.play("WalkingBack")
 
 
+#Il pg ha 4 nodi intorno che segnano la posizione possibile della HitBox per l'attacco bianco
+#la funzione get_hitbox_dir restituisce la posizione di quel nodo in base alla direzione del pg
 func get_hitbox_dir():
 	match current_dir:
 		hitbox_pos.West:

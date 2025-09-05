@@ -4,18 +4,13 @@ class_name Enemy
 
 @export var HP:int = 3
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+#SETTER degli HP
+#al raggiungimento dei 0HP (o meno) viene triggerata la morte dell'enemy
 func set_hp(val:int):
-	if HP >= 0:
-		HP -= val
+	if HP > 0:
+		HP += val
 	else:
-		self.position = Vector3(10000, 10000, 10000)
+		#TEMP: Simulazione di morte (viene spedita a fanculo e diventa invisibile)
 		self.visible = false
+		self.position = Vector3(10000, 10000, 10000)
