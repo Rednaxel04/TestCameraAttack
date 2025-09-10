@@ -9,7 +9,7 @@ class_name AttackComponent
 
 var stat_arma
 
-var attacking := false
+var attacking : bool = false
 
 #Questa componente più che un nodo di attacco è una componente per una HitBox per un attacco bianco,
 #ma questo è venuto fuori poi mentre ci lavoravo

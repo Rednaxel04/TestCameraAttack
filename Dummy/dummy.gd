@@ -4,17 +4,6 @@ class_name Enemy
 
 @onready var health_component = $HealthComponent
 
-#@export var HP:int = 3
-#
-#
-##SETTER degli HP
-##al raggiungimento dei 0HP (o meno) viene triggerata la morte dell'enemy
-#func set_hp(val:int):
-	#if HP > 0:
-		#HP += val
-	#else:
-		
-
 
 func _on_health_component_no_health():
 	#TEMP: Simulazione di morte (viene spedita a fanculo e diventa invisibile)
@@ -24,3 +13,4 @@ func _on_health_component_no_health():
 
 func _on_hurtbox_hit_landed():
 	health_component.set_hp(-1)
+	print("Health Remaining: ", health_component.get_hp())

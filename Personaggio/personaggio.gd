@@ -1,11 +1,11 @@
 extends CharacterBody3D
 
 @export_category("Movement")
-@export var SPEED := 5.0
-@export var JUMP_VELOCITY := 4.5
+@export var SPEED : float = 5.0
+@export var JUMP_VELOCITY : float = 4.5
 
 @onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
-@onready var health_component = $HealthComponent
+@onready var health_component : HealthComponent = $HealthComponent
 
 
 enum hitbox_pos {
@@ -15,7 +15,7 @@ enum hitbox_pos {
 	East	#3
 }
 
-var current_dir := hitbox_pos.South
+var current_dir : int = hitbox_pos.South
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	#ad ogni input (da tastiera e da mouse) viene chiamata la funzione che fa partire l'animazione
-	var input_dir := Input.get_vector("Left", "Right", "Up", "Down")
+	var input_dir : Vector2 = Input.get_vector("Left", "Right", "Up", "Down")
 	get_animation(input_dir.x, input_dir.y)
 
 

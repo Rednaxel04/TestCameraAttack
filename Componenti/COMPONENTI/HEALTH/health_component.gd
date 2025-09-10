@@ -17,7 +17,7 @@ func get_hp() -> int:
 #SETTER degli hp
 func set_hp(off: int) -> void:
 	var n_hp = current_health + off
-	if n_hp > 0 and n_hp < max_health:		#SE gli hp sono negativi E gli hp sono meno del massimo
+	if n_hp >= 0 and n_hp < max_health:		#SE gli hp sono negativi E gli hp sono meno del massimo
 		current_health = n_hp
 	elif n_hp < 0:
 		emit_signal("no_health")
