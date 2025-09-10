@@ -5,6 +5,8 @@ extends CharacterBody3D
 @export var JUMP_VELOCITY := 4.5
 
 @onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
+@onready var health_component = $HealthComponent
+
 
 enum hitbox_pos {
 	North,	#0
@@ -92,4 +94,8 @@ func get_hitbox_dir():
 			return $AnimatedSprite3D/PosHitboxS.global_position
 		hitbox_pos.North:
 			return $AnimatedSprite3D/PosHitboxN.global_position
-		
+
+
+func _on_health_component_no_health():
+	#FAILSTATE TBD
+	print("FAILSTATE")

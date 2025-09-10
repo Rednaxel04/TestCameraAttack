@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://6ck6gtqmkq41"]
+[gd_scene load_steps=24 format=3 uid="uid://6ck6gtqmkq41"]
 
 [ext_resource type="Texture2D" uid="uid://dabfx2n1a2v14" path="res://Personaggio/sprites/ch.png" id="1_cnpcq"]
 [ext_resource type="Script" uid="uid://bv82ponpdcgpd" path="res://Personaggio/personaggio.gd" id="1_i7dgp"]
-[ext_resource type="PackedScene" uid="uid://cxsaau8b8ingy" path="res://Componenti/attack.tscn" id="3_vdvvt"]
+[ext_resource type="PackedScene" uid="uid://cxsaau8b8ingy" path="res://Componenti/COMPONENTI3D/ATTACK/attack.tscn" id="3_vdvvt"]
+[ext_resource type="PackedScene" uid="uid://tnusoo3vtwmc" path="res://Componenti/COMPONENTI/HEALTH/health_component.tscn" id="4_7qeft"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i7dgp"]
 atlas = ExtResource("1_cnpcq")
@@ -192,5 +193,10 @@ debug_color = Color(0.973342, 0.0858232, 0.355481, 0.42)
 transform = Transform3D(0.31, 0, 0, 0, 0.31, 0, 0, 0, 0.31, 0, 0, 0)
 mesh = SubResource("SphereMesh_vdvvt")
 skeleton = NodePath("../..")
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_7qeft")]
+max_health = 5
+
+[connection signal="no_health" from="HealthComponent" to="." method="_on_health_component_no_health"]
 
 [editable path="Attack"]

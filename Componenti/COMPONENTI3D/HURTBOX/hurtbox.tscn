@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bwl0bhlrhbowi"]
 
-[ext_resource type="Script" uid="uid://cmncmfbnd2n24" path="res://Componenti/hurtbox.gd" id="1_sqrdl"]
+[ext_resource type="Script" uid="uid://cmncmfbnd2n24" path="res://Componenti/COMPONENTI3D/HURTBOX/hurtbox.gd" id="1_sqrdl"]
 
 [node name="Hurtbox" type="Node3D"]
 script = ExtResource("1_sqrdl")

@@ -2,6 +2,8 @@ extends Component3D
 
 class_name HurtBoxComponent
 
+signal hit_landed
+
 
 @export var _character: Enemy
 
@@ -13,5 +15,5 @@ func _on_hurtbox_collision_area_entered(area: Area3D) -> void:
 	print(area.get_parent().get_class_name())
 	if area.get_parent().get_class_name() == "AttackComponent":
 		print(_character, " GOT HIT BY ", area)
-		_character.set_hp(-1)
+		emit_signal("hit_landed")
 		

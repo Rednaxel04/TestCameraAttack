@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2v68cx1veed1"]
+[gd_scene load_steps=6 format=3 uid="uid://c2v68cx1veed1"]
 
 [ext_resource type="Script" uid="uid://dvotnwkh8v60" path="res://Dummy/dummy.gd" id="1_d42o3"]
 [ext_resource type="Shape3D" uid="uid://bewiot5e0qeb1" path="res://Dummy/dummy_box.tres" id="1_nynhp"]
-[ext_resource type="PackedScene" uid="uid://bwl0bhlrhbowi" path="res://Componenti/hurtbox.tscn" id="1_tx5ky"]
+[ext_resource type="PackedScene" uid="uid://bwl0bhlrhbowi" path="res://Componenti/COMPONENTI3D/HURTBOX/hurtbox.tscn" id="1_tx5ky"]
+[ext_resource type="PackedScene" uid="uid://tnusoo3vtwmc" path="res://Componenti/COMPONENTI/HEALTH/health_component.tscn" id="4_vqisv"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_nynhp"]
 
@@ -22,5 +23,11 @@ _character = NodePath("..")
 
 [node name="CollisionShape3D" parent="Hurtbox/HurtboxCollision" index="0"]
 shape = ExtResource("1_nynhp")
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_vqisv")]
+max_health = 3
+
+[connection signal="hit_landed" from="Hurtbox" to="." method="_on_hurtbox_hit_landed"]
+[connection signal="no_health" from="HealthComponent" to="." method="_on_health_component_no_health"]
 
 [editable path="Hurtbox"]

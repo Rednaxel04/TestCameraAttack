@@ -7,6 +7,8 @@ class_name AttackComponent
 @onready var _hit_box: Area3D = $HitBox
 @onready var collision_shape_3d: CollisionShape3D = $HitBox/CollisionShape3D
 
+var stat_arma
+
 var attacking := false
 
 #Questa componente più che un nodo di attacco è una componente per una HitBox per un attacco bianco,
